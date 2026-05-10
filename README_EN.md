@@ -5,43 +5,41 @@
   ██║╚██╗██║██║   ██║   ██║   ██║   ██║██║  ██║██╔══██║
   ██║ ╚████║╚██████╔╝   ██║   ╚██████╔╝██████╔╝██║  ██║
   ╚═╝  ╚═══╝ ╚═════╝    ╚═╝    ╚═════╝ ╚═════╝ ╚═╝  ╚═╝
-       Steam-style GitHub profile · ようこそ
+       Steam-style GitHub profile · welcome
 -->
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:1a1a1a,100:000000&height=220&section=header&text=NUTODA&fontSize=80&fontColor=c8a96b&animation=fadeIn&fontAlignY=38&desc=%E3%82%88%E3%81%86%E3%81%93%E3%81%9D&descSize=18&descAlign=50&descAlignY=62" alt="NUTODA" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:1a1a1a,100:000000&height=220&section=header&text=NUTODA&fontSize=80&fontColor=c8a96b&animation=fadeIn&fontAlignY=38&desc=welcome&descSize=18&descAlign=50&descAlignY=62" alt="NUTODA" />
 
-<a href="README.md"><img src="https://img.shields.io/badge/RU-русский-c8a96b?style=flat-square&labelColor=000000" alt="RU" /></a>
-<a href="README_EN.md"><img src="https://img.shields.io/badge/EN-english-2a2a2a?style=flat-square&labelColor=000000" alt="EN" /></a>
+<a href="README.md"><img src="https://img.shields.io/badge/RU-русский-2a2a2a?style=flat-square&labelColor=000000" alt="RU" /></a>
+<a href="README_EN.md"><img src="https://img.shields.io/badge/EN-english-c8a96b?style=flat-square&labelColor=000000" alt="EN" /></a>
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2800&pause=900&color=C8A96B&center=true&vCenter=true&width=600&lines=%E3%82%88%E3%81%86%E3%81%93%E3%81%9D+%E2%80%94+welcome+to+my+profile;Currently+Offline+%2F+%D0%9D%D0%B5+%D0%B2+%D1%81%D0%B5%D1%82%D0%B8;Уровень+20+%C2%B7+Poland;%E5%BF%AB%E9%A2%A8%E5%88%83%E9%9B%B6+%C2%B7+JDM+%2F+anime+%2F+code" alt="typing" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2800&pause=900&color=C8A96B&center=true&vCenter=true&width=600&lines=%E3%82%88%E3%81%86%E3%81%93%E3%81%9D+%E2%80%94+welcome+to+my+profile;Currently+Offline;Level+20+%C2%B7+Poland;%E5%BF%AB%E9%A2%A8%E5%88%83%E9%9B%B6+%C2%B7+JDM+%2F+anime+%2F+code" alt="typing" />
 
 </div>
 
 <br/>
 
-<!-- ─────────────────────────────  ШАПКА ПРОФИЛЯ  ───────────────────────────── -->
+<!-- ─────────────────────────────  PROFILE HEADER  ───────────────────────────── -->
 
 <table width="100%" align="center">
   <tr>
-    <!-- Аватар + Имя + Страна -->
     <td width="40%" align="center" valign="top">
       <img src="https://github.com/NUTODA.png" width="110" style="border-radius:8px" alt="avatar" /><br/>
       <sub><b>NUTODA</b></sub><br/>
       <sub><img src="https://flagcdn.com/16x12/pl.png" alt="PL" /> Poland</sub>
     </td>
-    <!-- Уровень / Статус -->
     <td width="60%" align="left" valign="top">
       <p>
-        <img src="https://img.shields.io/badge/Уровень-20-c8a96b?style=for-the-badge&labelColor=000000" alt="level" />
-        <img src="https://komarev.com/ghpvc/?username=NUTODA&label=Просмотры&color=c8a96b&style=for-the-badge&labelColor=000000" alt="views" />
+        <img src="https://img.shields.io/badge/Level-20-c8a96b?style=for-the-badge&labelColor=000000" alt="level" />
+        <img src="https://komarev.com/ghpvc/?username=NUTODA&label=Views&color=c8a96b&style=for-the-badge&labelColor=000000" alt="views" />
       </p>
       <p>
-        <sub><b>Не в сети</b></sub><br/>
-        <sub>Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</sub>
+        <sub><b>Currently Offline</b></sub><br/>
+        <sub>Commits, Steam GIF showcases and JDM-anime live here.</sub>
       </p>
     </td>
   </tr>
@@ -49,15 +47,15 @@
 
 ---
 
-<!-- ─────────────────────────  ВИТРИНА МАСТЕРСКОЙ  ───────────────────────── -->
+<!-- ─────────────────────────  WORKSHOP SHOWCASE  ───────────────────────── -->
 
-### Витрина мастерской · <sub><sub>Workshop Showcase</sub></sub>
+### Workshop Showcase
 
 <table>
   <tr>
     <td colspan="2" align="left">
       <img src="https://github.githubassets.com/favicons/favicon-dark.png" width="14" />
-      <b>Мастерская NUTODA</b>
+      <b>NUTODA's Workshop</b>
     </td>
   </tr>
   <tr>
@@ -86,13 +84,13 @@
   </tr>
 </table>
 
-<sub><b>30</b> работ · <a href="https://github.com/NUTODA?tab=repositories">все репозитории →</a></sub>
+<sub><b>30</b> submissions · <a href="https://github.com/NUTODA?tab=repositories">all repositories →</a></sub>
 
 ---
 
-<!-- ─────────────────────────────  ИЛЛЮСТРАЦИИ  ───────────────────────────── -->
+<!-- ─────────────────────────────  ARTWORK  ───────────────────────────── -->
 
-### Иллюстрации · <sub><sub>Artwork Showcase</sub></sub>
+### Artwork Showcase
 
 <p align="center">
   <a href="assets/illustrations/01.svg"><img src="assets/illustrations/01.svg" width="32%" alt="illustration 1" /></a>
@@ -106,9 +104,9 @@
 
 ---
 
-<!-- ─────────────────────────────  ИНВЕНТАРЬ  ───────────────────────────── -->
+<!-- ─────────────────────────────  INVENTORY  ───────────────────────────── -->
 
-### Инвентарь · <sub><sub>Inventory</sub></sub>
+### Inventory
 
 <table align="center">
   <tr>
@@ -126,14 +124,14 @@
 </p>
 
 <sub align="center">
-  Работ в мастерской · <b>30</b> &nbsp;·&nbsp; Обзоры · <b>2</b> &nbsp;·&nbsp; Иллюстрации · <b>4</b>
+  Workshop items · <b>30</b> &nbsp;·&nbsp; Reviews · <b>2</b> &nbsp;·&nbsp; Artwork · <b>4</b>
 </sub>
 
 ---
 
-<!-- ─────────────────────────────  ЗНАЧКИ  ───────────────────────────── -->
+<!-- ─────────────────────────────  BADGES  ───────────────────────────── -->
 
-### Значки · <sub><sub>Badges</sub></sub>
+### Badges
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=python,ts,js,react,nextjs,nodejs,docker,linux,git,github,vercel,postgres,php,kotlin&theme=dark&perline=14" alt="stack" />
@@ -148,16 +146,16 @@
 
 ---
 
-<!-- ─────────────────────────────  ГРУППЫ  ───────────────────────────── -->
+<!-- ─────────────────────────────  GROUPS  ───────────────────────────── -->
 
-### Группы · <sub><sub>Groups</sub></sub>
+### Groups
 
 <table>
   <tr>
     <td width="60"><img src="https://github.githubassets.com/favicons/favicon-dark.png" width="48" /></td>
     <td>
       <b>Hentai!</b><br/>
-      <sub>Участников: 1 462 579</sub>
+      <sub>Members: 1,462,579</sub>
     </td>
   </tr>
 </table>
