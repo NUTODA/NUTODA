@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 920 200"
+     width="100%"
+     preserveAspectRatio="xMidYMid meet"
+     role="img"
+     aria-label="NUTODA">
+  <defs>
+    <pattern id="halftone" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1" fill="#000000"/>
+    </pattern>
+  </defs>
+
+  <!-- paper + halftone -->
+  <rect width="920" height="200" fill="#ffffff"/>
+  <rect width="920" height="200" fill="url(#halftone)"/>
+
+  <!-- outer thick border -->
+  <rect x="3" y="3" width="914" height="194"
+        fill="none" stroke="#000000" stroke-width="6"/>
+
+  <!-- decorative corner circles -->
+  <g>
+    <circle cx="0" cy="0" r="50" fill="#ffffff" stroke="#000000" stroke-width="4"/>
+    <circle cx="0" cy="0" r="38" fill="none" stroke="#ff0033" stroke-width="5"/>
+  </g>
+  <g>
+    <circle cx="920" cy="200" r="50" fill="#ffffff" stroke="#000000" stroke-width="4"/>
+    <circle cx="920" cy="200" r="38" fill="none" stroke="#ff0033" stroke-width="5"/>
+  </g>
+
+  <!-- main wordmark, skewed manga box -->
+  <g transform="translate(460 92)">
+    <g transform="skewX(-6)">
+      <!-- red drop shadow -->
+      <rect x="-300" y="-58" width="600" height="116" fill="#ff0033"
+            transform="translate(10 10)"/>
+      <!-- white box with black border -->
+      <rect x="-300" y="-58" width="600" height="116"
+            fill="#ffffff" stroke="#000000" stroke-width="6"/>
+      <!-- NUTODA -->
+      <text x="0" y="0"
+            font-family="Anton, Impact, 'Arial Narrow Bold', 'Helvetica Inserat', sans-serif"
+            font-size="96" font-weight="400"
+            text-anchor="middle"
+            dominant-baseline="central"
+            fill="#000000">NUTODA</text>
+    </g>
+  </g>
+
+  <!-- subtitle ribbon -->
+  <g transform="translate(460 178)">
+    <g transform="skewX(-6)">
+      <rect x="-140" y="-13" width="280" height="26" fill="#ff0033"/>
+      <text x="0" y="0"
+            font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif"
+            font-size="13" font-weight="700"
+            text-anchor="middle"
+            dominant-baseline="central"
+            fill="#ffffff"
+            letter-spacing="6">GITHUB.COM/NUTODA</text>
+    </g>
+  </g>
+</svg>

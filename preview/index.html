@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>NUTODA · profile preview · anime manga</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+
+  <style>
+    :root {
+      --bg:        #ffffff;
+      --ink:       #000000;
+      --paper:     #fafafa;
+      --red:       #ff0033;
+      --muted:     #666666;
+      --subtle:    #999999;
+      --max:       920px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { background: var(--bg); }
+    body {
+      margin: 0;
+      padding: 40px 16px 60px;
+      color: var(--ink);
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      display: flex;
+      justify-content: center;
+    }
+    .frame { width: 100%; max-width: var(--max); }
+
+    /* ───── halftone helper ───── */
+    .halftone {
+      background-image:
+        radial-gradient(circle, var(--ink) 1px, transparent 1.5px);
+      background-size: 8px 8px;
+    }
+    .halftone-fade {
+      background:
+        radial-gradient(circle, var(--ink) 1px, transparent 1.5px) 0 0 / 8px 8px,
+        linear-gradient(180deg, var(--bg) 0%, transparent 30%, transparent 70%, var(--bg) 100%);
+    }
+
+    /* ───── top nav ───── */
+    .topnav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 24px;
+    }
+    .topnav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--ink);
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 2px solid var(--ink);
+      background: var(--bg);
+      transition: box-shadow .15s ease, transform .15s ease;
+    }
+    .topnav a:hover {
+      box-shadow: 3px 3px 0 var(--red);
+      transform: translate(-1px, -1px);
+    }
+
+    /* ───── BANNER ───── */
+    .banner {
+      position: relative;
+      padding: 60px 20px 40px;
+      text-align: center;
+      border: 4px solid var(--ink);
+      box-shadow: 12px 12px 0 var(--red);
+      margin-bottom: 50px;
+      background-image:
+        radial-gradient(circle, var(--ink) 1px, transparent 1.5px);
+      background-size: 8px 8px;
+      overflow: hidden;
+    }
+    .banner::before, .banner::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: var(--bg);
+      border: 4px solid var(--ink);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 6px var(--red);
+    }
+    .banner::before { top: -40px; left: -40px; }
+    .banner::after  { bottom: -40px; right: -40px; }
+
+    .banner h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 110px;
+      line-height: 1;
+      letter-spacing: 0;
+      margin: 0;
+      transform: skewX(-6deg);
+      display: inline-block;
+      background: var(--bg);
+      padding: 6px 24px 0;
+      border: 4px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--red);
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+    .banner .sub {
+      margin-top: 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 12px;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--red);
+      display: inline-block;
+      padding: 6px 18px 4px;
+      transform: skewX(-6deg);
+      color: var(--bg);
+    }
+
+    /* ───── LANG SWITCHER ───── */
+    .lang {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+    .lang a {
+      font-family: 'Anton', sans-serif;
+      font-size: 18px;
+      letter-spacing: 4px;
+      text-decoration: none;
+      padding: 8px 22px 6px;
+      transform: skewX(-6deg);
+      display: inline-block;
+      border: 3px solid var(--ink);
+    }
+    .lang a.active {
+      background: var(--ink);
+      color: var(--bg);
+      box-shadow: 5px 5px 0 var(--red);
+    }
+    .lang a.inactive {
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .lang a.inactive:hover {
+      box-shadow: 5px 5px 0 var(--red);
+    }
+
+    /* ───── HEADER CARD ───── */
+    .header {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 22px 26px;
+      border: 4px solid var(--ink);
+      box-shadow: 10px 10px 0 var(--red);
+      background: var(--bg);
+      margin-bottom: 60px;
+    }
+    .header img.avatar {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+      border: 4px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--red);
+    }
+    .header h3 {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 32px;
+      letter-spacing: 2px;
+      margin: 0 0 8px;
+      line-height: 1;
+    }
+    .header .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .header .badge {
+      font-family: 'Anton', sans-serif;
+      font-size: 14px;
+      letter-spacing: 3px;
+      padding: 4px 12px 2px;
+      transform: skewX(-6deg);
+      display: inline-block;
+      border: 2px solid var(--ink);
+      text-transform: uppercase;
+    }
+    .header .badge.dark { background: var(--ink); color: var(--bg); }
+    .header .badge.red  { background: var(--red); color: var(--bg); border-color: var(--red); }
+    .header .badge.outline { background: var(--bg); color: var(--ink); }
+    .header .status {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ───── SECTION HEAD ───── */
+    .section { margin-top: 70px; }
+    .section-head {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: end;
+      gap: 24px;
+      padding-bottom: 14px;
+      border-bottom: 5px solid var(--ink);
+      margin-bottom: 30px;
+    }
+    .section-head .num {
+      font-family: 'Anton', sans-serif;
+      font-size: 64px;
+      line-height: 0.85;
+      color: var(--bg);
+      -webkit-text-stroke: 2px var(--ink);
+      letter-spacing: -2px;
+      text-shadow: 4px 4px 0 var(--red);
+    }
+    .section-head h2 {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 0.9;
+      letter-spacing: 3px;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+      transform: skewX(-3deg);
+    }
+    .section-head .en {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding-bottom: 8px;
+      text-align: right;
+    }
+
+    /* ───── ILLUSTRATIONS ───── */
+    .illu .hero img {
+      width: 100%;
+      aspect-ratio: 21 / 9;
+      object-fit: cover;
+      display: block;
+      border: 5px solid var(--ink);
+      box-shadow: 12px 12px 0 var(--red);
+    }
+    .illu .row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+    .illu .row img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      border: 4px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--red);
+    }
+    .illu .caption {
+      font-family: 'Anton', sans-serif;
+      font-size: 18px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-top: 22px;
+      text-align: right;
+      transform: skewX(-3deg);
+    }
+    .illu .caption .accent { color: var(--red); }
+
+    /* ───── INVENTORY ───── */
+    .inventory .row1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .inventory .panel {
+      background: var(--bg);
+      border: 4px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--red);
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+    }
+    .inventory .row2 {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+    }
+    .inventory .row2 .panel { width: 100%; }
+    .inventory img { max-width: 100%; height: auto; display: block; }
+
+    /* ───── ACTIVITY ───── */
+    .activity .panel {
+      background: var(--bg);
+      border: 4px solid var(--ink);
+      box-shadow: 10px 10px 0 var(--red);
+      padding: 18px;
+    }
+    .activity img { width: 100%; display: block; }
+
+    /* ───── FOOTER ───── */
+    .footer {
+      margin-top: 70px;
+      padding: 28px 20px;
+      text-align: center;
+      border-top: 4px solid var(--ink);
+      background-image:
+        radial-gradient(circle, var(--ink) 1px, transparent 1.5px);
+      background-size: 8px 8px;
+    }
+    .footer .meta-line {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--bg);
+      display: inline-block;
+      padding: 6px 14px;
+      border: 2px solid var(--ink);
+    }
+
+    /* ───── responsive ───── */
+    @media (max-width: 720px) {
+      .banner h1 { font-size: 64px; padding: 4px 14px 0; }
+      .banner .sub { font-size: 10px; letter-spacing: 6px; }
+      .header { grid-template-columns: 80px 1fr; gap: 14px; padding: 14px; }
+      .header img.avatar { width: 80px; height: 80px; }
+      .header h3 { font-size: 24px; }
+      .section-head { gap: 12px; }
+      .section-head .num { font-size: 42px; text-shadow: 3px 3px 0 var(--red); }
+      .section-head h2 { font-size: 24px; letter-spacing: 2px; }
+      .section-head .en { display: none; }
+      .illu .row { grid-template-columns: 1fr; gap: 14px; }
+      .inventory .row1 { grid-template-columns: 1fr; }
+      .footer .meta-line { font-size: 9px; letter-spacing: 3px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="frame">
+
+    <!-- ─────────────────────────────  TOP NAV  ───────────────────────────── -->
+    <nav class="topnav">
+      <a href="styles.html">Style Lab →</a>
+      <a href="fonts.html">Font Lab →</a>
+    </nav>
+
+    <!-- ─────────────────────────────  BANNER  ───────────────────────────── -->
+    <header class="banner">
+      <h1>NUTODA</h1>
+      <div class="sub">github.com/NUTODA</div>
+    </header>
+
+    <!-- ─────────────────────────────  LANG SWITCHER  ───────────────────────────── -->
+    <nav class="lang">
+      <a class="active"   href="#">RU · русский</a>
+      <a class="inactive" href="#">EN · english</a>
+    </nav>
+
+    <!-- ─────────────────────────────  HEADER CARD  ───────────────────────────── -->
+    <section class="header">
+      <img class="avatar" src="https://github.com/NUTODA.png" alt="avatar" />
+      <div>
+        <h3>NUTODA</h3>
+        <div class="meta-row">
+          <span class="badge dark">Followers 1</span>
+          <span class="badge dark">Following 2</span>
+          <span class="badge red">Просмотры 6</span>
+        </div>
+        <p class="status">Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────  INVENTORY  ───────────────────────────── -->
+    <section class="section inventory">
+      <div class="section-head">
+        <span class="num">01</span>
+        <h2>Инвентарь</h2>
+        <span class="en">inventory / stats</span>
+      </div>
+
+      <div class="row1">
+        <div class="panel">
+          <img src="https://github-readme-stats.vercel.app/api?username=NUTODA&show_icons=true&theme=transparent&hide_border=true&title_color=000000&icon_color=ff0033&text_color=000000&bg_color=00000000&include_all_commits=true&count_private=true" alt="stats" />
+        </div>
+        <div class="panel">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=NUTODA&layout=donut&theme=transparent&hide_border=true&title_color=000000&text_color=000000&bg_color=00000000&langs_count=8" alt="top-langs" />
+        </div>
+      </div>
+      <div class="row2">
+        <div class="panel">
+          <img src="https://github-readme-streak-stats.herokuapp.com/?user=NUTODA&theme=default&hide_border=true&background=ffffff00&ring=ff0033&fire=ff0033&currStreakLabel=ff0033&sideLabels=000000&sideNums=000000&dates=666666&currStreakNum=000000&stroke=ff0033" alt="streak" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────  ACTIVITY  ───────────────────────────── -->
+    <section class="section activity">
+      <div class="section-head">
+        <span class="num">02</span>
+        <h2>Активность</h2>
+        <span class="en">activity graph / 1y</span>
+      </div>
+
+      <div class="panel">
+        <img src="https://github-readme-activity-graph.vercel.app/graph?username=NUTODA&hide_border=true&bg_color=ffffff00&color=000000&line=ff0033&point=000000&area=true&area_color=ff0033&radius=4" alt="activity graph" />
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────  ILLUSTRATIONS  ───────────────────────────── -->
+    <section class="section illu">
+      <div class="section-head">
+        <span class="num">03</span>
+        <h2>Иллюстрации</h2>
+        <span class="en">artwork showcase / 04</span>
+      </div>
+
+      <div class="hero">
+        <img src="../assets/illustrations/01.jpg" alt="Miu Miu — JDM Silvia" />
+      </div>
+      <div class="row">
+        <img src="../assets/illustrations/02.jpg" alt="☆⌒(＞。≪)" />
+        <img src="../assets/illustrations/03.jpg" alt="(´TωT`)" />
+        <img src="../assets/illustrations/04.jpg" alt="_￠(･ω･｀)" />
+      </div>
+      <p class="caption">Miu Miu <span class="accent">·</span> ☆⌒(＞。≪) <span class="accent">·</span> (´TωT`) <span class="accent">·</span> _￠(･ω･｀)</p>
+    </section>
+
+    <!-- ─────────────────────────────  FOOTER  ───────────────────────────── -->
+    <footer class="footer">
+      <div class="meta-line">@NUTODA · github.com/NUTODA</div>
+    </footer>
+
+  </main>
+</body>
+</html>

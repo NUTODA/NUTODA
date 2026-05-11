@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>NUTODA · font lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- All candidate families loaded once -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Big+Shoulders+Display:wght@400;700;900&family=Black+Ops+One&family=Geist+Mono:wght@400;500;600&family=Geist:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Major+Mono+Display&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;600&family=Noto+Serif+JP:wght@500;700&family=Oswald:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Syncopate:wght@400;700&family=Unbounded:wght@400;500;700;900&family=Zen+Tokyo+Zoo&display=swap" />
+
+  <style>
+    :root {
+      --bg:        #0a0a0a;
+      --surface:   #141414;
+      --border:    #262626;
+      --fg:        #ffffff;
+      --muted:     #a3a3a3;
+      --subtle:    #666666;
+      --red:       #e60012;
+      --max:       960px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { background: var(--bg); }
+    body {
+      margin: 0;
+      padding: 48px 16px 80px;
+      color: var(--fg);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      display: flex;
+      justify-content: center;
+    }
+    .frame { width: 100%; max-width: var(--max); }
+
+    /* ───── header ───── */
+    .lab-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 28px;
+    }
+    .lab-head h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .lab-head .back {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+    }
+    .lab-head .back:hover { color: var(--red); border-color: var(--red); }
+
+    .intro {
+      font-family: 'Inter', sans-serif;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 40px;
+      max-width: 640px;
+    }
+    .intro b { color: var(--fg); }
+
+    /* ───── compact compare strip ───── */
+    .strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 56px;
+    }
+    .strip > div {
+      display: grid;
+      grid-template-columns: 38px 1fr 220px;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .strip > div:last-child { border-bottom: none; }
+    .strip .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--subtle);
+      letter-spacing: 2px;
+    }
+    .strip .word {
+      color: var(--fg);
+      font-size: 44px;
+      letter-spacing: 4px;
+      line-height: 1;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .strip .pick {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-align: right;
+    }
+    .strip .pick a {
+      color: var(--red);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--red);
+    }
+
+    /* ───── variant card ───── */
+    .variant {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px 26px 22px;
+      margin-bottom: 24px;
+    }
+    .variant .v-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .variant .v-head .v-num {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--red);
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+    .variant .v-head .v-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      flex: 1;
+      margin: 0 16px;
+    }
+    .variant .v-head .v-vibe {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--subtle);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .variant .v-banner {
+      text-align: center;
+      padding: 14px 0 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .variant .v-banner .word {
+      color: var(--fg);
+      font-size: 110px;
+      line-height: 1;
+      letter-spacing: 4px;
+    }
+    .variant .v-banner .sub {
+      color: var(--subtle);
+      font-size: 12px;
+      letter-spacing: 8px;
+      margin-top: 6px;
+    }
+
+    .variant .v-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 18px 0 8px;
+    }
+    .variant .v-body p { margin: 0 0 8px; }
+    .variant .v-body .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--subtle);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .variant .v-body .body-sample b { color: var(--fg); }
+    .variant .v-body .body-sample {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .variant .v-body .body-sample .red { color: var(--red); }
+
+    .variant .v-credits {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+    .variant .v-credits .row {}
+    .variant .v-credits .k { color: var(--subtle); display: block; margin-bottom: 4px; letter-spacing: 3px; text-transform: uppercase; }
+    .variant .v-credits .v { color: var(--fg); }
+
+    /* ───── individual font assignments per variant ───── */
+
+    /* 01 — CINEMA */
+    .v01 .word            { font-family: 'Anton', sans-serif; }
+    .v01 .v-banner .sub   { font-family: 'Noto Serif JP', serif; color: var(--red); }
+    .v01 .body-sample     { font-family: 'Inter', sans-serif; }
+    .v01 .mono-sample     { font-family: 'JetBrains Mono', monospace; }
+
+    /* 02 — EDITORIAL */
+    .v02 .word            { font-family: 'Bebas Neue', sans-serif; letter-spacing: 6px; }
+    .v02 .v-banner .sub   { font-family: 'IBM Plex Sans', sans-serif; }
+    .v02 .body-sample     { font-family: 'IBM Plex Sans', sans-serif; }
+    .v02 .mono-sample     { font-family: 'IBM Plex Mono', monospace; }
+
+    /* 03 — BRUTALIST */
+    .v03 .word            { font-family: 'Archivo Black', sans-serif; letter-spacing: 0; font-size: 90px; }
+    .v03 .v-banner .sub   { font-family: 'Geist', sans-serif; }
+    .v03 .body-sample     { font-family: 'Geist', sans-serif; }
+    .v03 .mono-sample     { font-family: 'Geist Mono', monospace; }
+
+    /* 04 — TOKYO */
+    .v04 .word            { font-family: 'Zen Tokyo Zoo', sans-serif; font-size: 86px; letter-spacing: 8px; }
+    .v04 .v-banner .sub   { font-family: 'Noto Serif JP', serif; color: var(--red); }
+    .v04 .body-sample     { font-family: 'Noto Sans JP', sans-serif; }
+    .v04 .mono-sample     { font-family: 'Noto Sans Mono', monospace; }
+
+    /* 05 — MECHA */
+    .v05 .word            { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; letter-spacing: 2px; font-size: 130px; }
+    .v05 .v-banner .sub   { font-family: 'Space Grotesk', sans-serif; }
+    .v05 .body-sample     { font-family: 'Space Grotesk', sans-serif; }
+    .v05 .mono-sample     { font-family: 'Space Mono', monospace; }
+
+    /* 06 — STENCIL */
+    .v06 .word            { font-family: 'Black Ops One', system-ui; font-size: 80px; letter-spacing: 2px; }
+    .v06 .v-banner .sub   { font-family: 'Inter', sans-serif; }
+    .v06 .body-sample     { font-family: 'Inter', sans-serif; }
+    .v06 .mono-sample     { font-family: 'JetBrains Mono', monospace; }
+
+    /* 07 — MONO PURIST */
+    .v07 .word            { font-family: 'Major Mono Display', monospace; font-size: 78px; letter-spacing: 0; }
+    .v07 .v-banner .sub   { font-family: 'JetBrains Mono', monospace; }
+    .v07 .body-sample     { font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+    .v07 .mono-sample     { font-family: 'JetBrains Mono', monospace; }
+
+    /* compact strip wordmark fonts */
+    .strip .v01 .word { font-family: 'Anton', sans-serif; letter-spacing: 4px; }
+    .strip .v02 .word { font-family: 'Bebas Neue', sans-serif; letter-spacing: 6px; }
+    .strip .v03 .word { font-family: 'Archivo Black', sans-serif; letter-spacing: 0; font-size: 36px; }
+    .strip .v04 .word { font-family: 'Zen Tokyo Zoo', sans-serif; font-size: 34px; letter-spacing: 6px; }
+    .strip .v05 .word { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 56px; letter-spacing: 2px; }
+    .strip .v06 .word { font-family: 'Black Ops One', system-ui; font-size: 32px; letter-spacing: 2px; }
+    .strip .v07 .word { font-family: 'Major Mono Display', monospace; font-size: 30px; }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      .variant .v-banner .word { font-size: 70px !important; letter-spacing: 2px !important; }
+      .variant .v-body { grid-template-columns: 1fr; }
+      .variant .v-credits { grid-template-columns: 1fr; }
+      .strip > div { grid-template-columns: 28px 1fr 100px; gap: 8px; }
+      .strip .word { font-size: 28px !important; letter-spacing: 2px !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="frame">
+
+    <header class="lab-head">
+      <h1>FONT LAB · NUTODA</h1>
+      <span style="display:flex;gap:8px;">
+        <a class="back" href="index.html">← Profile</a>
+        <a class="back" href="styles.html">Styles</a>
+      </span>
+    </header>
+
+    <p class="intro">
+      Семь готовых комбинаций шрифтов для будущего профиля.
+      Палитра одна — <b>чёрный · белый · красный <code style="background:#141414;padding:2px 4px;">#e60012</code></b>.
+      Сначала пробежись по компактной полосе ниже — там одинаково отрендерены все 7 вариантов «NUTODA» рядом, чтобы быстро отсеять.
+      Потом — детальные карточки с примером тела и моноширинного блока.
+      Когда выберешь номер, скажи, например: <b>«берём № 3»</b>, и я подключу его в [<code>preview/index.html</code>] и потом в README.
+    </p>
+
+    <!-- ───── COMPACT COMPARE STRIP ───── -->
+    <div class="strip">
+      <div class="v01"><span class="num">01</span><span class="word">NUTODA</span><span class="pick">CINEMA · Anton</span></div>
+      <div class="v02"><span class="num">02</span><span class="word">NUTODA</span><span class="pick">EDITORIAL · Bebas Neue</span></div>
+      <div class="v03"><span class="num">03</span><span class="word">NUTODA</span><span class="pick">BRUTALIST · Archivo Black</span></div>
+      <div class="v04"><span class="num">04</span><span class="word">NUTODA</span><span class="pick">TOKYO · Zen Tokyo Zoo</span></div>
+      <div class="v05"><span class="num">05</span><span class="word">NUTODA</span><span class="pick">MECHA · Big Shoulders</span></div>
+      <div class="v06"><span class="num">06</span><span class="word">NUTODA</span><span class="pick">STENCIL · Black Ops One</span></div>
+      <div class="v07"><span class="num">07</span><span class="word">NUTODA</span><span class="pick">MONO · Major Mono</span></div>
+    </div>
+
+    <!-- ───── DETAILED CARDS ───── -->
+
+    <!-- 01 CINEMA -->
+    <article class="variant v01">
+      <header class="v-head">
+        <div class="v-num">01</div>
+        <h3 class="v-name">Cinema</h3>
+        <div class="v-vibe">poster · кинематограф</div>
+      </header>
+      <div class="v-banner">
+        <div class="word">NUTODA</div>
+        <div class="sub">ようこそ</div>
+      </div>
+      <div class="v-body">
+        <div>
+          <div class="label">Body sample</div>
+          <p class="body-sample"><b>Currently Offline</b> · Level 20 · Poland<br/>
+          Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
+        </div>
+        <div>
+          <div class="label">Mono sample</div>
+          <pre class="mono-sample" style="margin:0;color:var(--muted);font-size:12px;line-height:1.55;">OS:        GitHub.com
+Shell:     zsh / bash
+Languages: TS · Python · PHP
+Status:    <span style="color:var(--red)">Currently Offline</span></pre>
+        </div>
+      </div>
+      <div class="v-credits">
+        <div class="row"><span class="k">Heading</span><span class="v">Anton</span></div>
+        <div class="row"><span class="k">Body</span><span class="v">Inter</span></div>
+        <div class="row"><span class="k">Mono</span><span class="v">JetBrains Mono</span></div>
+      </div>
+    </article>
+
+    <!-- 02 EDITORIAL -->
+    <article class="variant v02">
+      <header class="v-head">
+        <div class="v-num">02</div>
+        <h3 class="v-name">Editorial</h3>
+        <div class="v-vibe">magazine · обложка</div>
+      </header>
+      <div class="v-banner">
+        <div class="word">NUTODA</div>
+        <div class="sub">welcome  ·  Poland  ·  Level 20</div>
+      </div>
+      <div class="v-body">
+        <div>
+          <div class="label">Body sample</div>
+          <p class="body-sample"><b>Currently Offline</b> · Level 20 · Poland<br/>
+          Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
+        </div>
+        <div>
+          <div class="label">Mono sample</div>
+          <pre class="mono-sample" style="margin:0;color:var(--muted);font-size:12px;line-height:1.55;">OS:        GitHub.com
+Shell:     zsh / bash
+Languages: TS · Python · PHP
+Status:    <span style="color:var(--red)">Currently Offline</span></pre>
+        </div>
+      </div>
+      <div class="v-credits">
+        <div class="row"><span class="k">Heading</span><span class="v">Bebas Neue</span></div>
+        <div class="row"><span class="k">Body</span><span class="v">IBM Plex Sans</span></div>
+        <div class="row"><span class="k">Mono</span><span class="v">IBM Plex Mono</span></div>
+      </div>
+    </article>
+
+    <!-- 03 BRUTALIST -->
+    <article class="variant v03">
+      <header class="v-head">
+        <div class="v-num">03</div>
+        <h3 class="v-name">Brutalist</h3>
+        <div class="v-vibe">heavy · современный tech</div>
+      </header>
+      <div class="v-banner">
+        <div class="word">NUTODA</div>
+        <div class="sub">poland · level 20</div>
+      </div>
+      <div class="v-body">
+        <div>
+          <div class="label">Body sample</div>
+          <p class="body-sample"><b>Currently Offline</b> · Level 20 · Poland<br/>
+          Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
+        </div>
+        <div>
+          <div class="label">Mono sample</div>
+          <pre class="mono-sample" style="margin:0;color:var(--muted);font-size:12px;line-height:1.55;">OS:        GitHub.com
+Shell:     zsh / bash
+Languages: TS · Python · PHP
+Status:    <span style="color:var(--red)">Currently Offline</span></pre>
+        </div>
+      </div>
+      <div class="v-credits">
+        <div class="row"><span class="k">Heading</span><span class="v">Archivo Black</span></div>
+        <div class="row"><span class="k">Body</span><span class="v">Geist</span></div>
+        <div class="row"><span class="k">Mono</span><span class="v">Geist Mono</span></div>
+      </div>
+    </article>
+
+    <!-- 04 TOKYO -->
+    <article class="variant v04">
+      <header class="v-head">
+        <div class="v-num">04</div>
+        <h3 class="v-name">Tokyo</h3>
+        <div class="v-vibe">j-pop · vapor</div>
+      </header>
+      <div class="v-banner">
+        <div class="word">NUTODA</div>
+        <div class="sub">ようこそ</div>
+      </div>
+      <div class="v-body">
+        <div>
+          <div class="label">Body sample</div>
+          <p class="body-sample"><b>Currently Offline</b> · Level 20 · Poland<br/>
+          Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
+        </div>
+        <div>
+          <div class="label">Mono sample</div>
+          <pre class="mono-sample" style="margin:0;color:var(--muted);font-size:12px;line-height:1.55;">OS:        GitHub.com
+Shell:     zsh / bash
+Languages: TS · Python · PHP
+Status:    <span style="color:var(--red)">Currently Offline</span></pre>
+        </div>
+      </div>
+      <div class="v-credits">
+        <div class="row"><span class="k">Heading</span><span class="v">Zen Tokyo Zoo</span></div>
+        <div class="row"><span class="k">Body</span><span class="v">Noto Sans JP</span></div>
+        <div class="row"><span class="k">Mono</span><span class="v">Noto Sans Mono</span></div>
+      </div>
+    </article>
+
+    <!-- 05 MECHA -->
+    <article class="variant v05">
+      <header class="v-head">
+        <div class="v-num">05</div>
+        <h3 class="v-name">Mecha</h3>
+        <div class="v-vibe">futurism · sci-fi</div>
+      </header>
+      <div class="v-banner">
+        <div class="word">NUTODA</div>
+        <div class="sub">level 20  ·  poland</div>
+      </div>
+      <div class="v-body">
+        <div>
+          <div class="label">Body sample</div>
+          <p class="body-sample"><b>Currently Offline</b> · Level 20 · Poland<br/>
+          Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
+        </div>
+        <div>
+          <div class="label">Mono sample</div>
+          <pre class="mono-sample" style="margin:0;color:var(--muted);font-size:12px;line-height:1.55;">OS:        GitHub.com
+Shell:     zsh / bash
+Languages: TS · Python · PHP
+Status:    <span style="color:var(--red)">Currently Offline</span></pre>
+        </div>
+      </div>
+      <div class="v-credits">
+        <div class="row"><span class="k">Heading</span><span class="v">Big Shoulders Display</span></div>
+        <div class="row"><span class="k">Body</span><span class="v">Space Grotesk</span></div>
+        <div class="row"><span class="k">Mono</span><span class="v">Space Mono</span></div>
+      </div>
+    </article>
+
+    <!-- 06 STENCIL -->
+    <article class="variant v06">
+      <header class="v-head">
+        <div class="v-num">06</div>
+        <h3 class="v-name">Stencil</h3>
+        <div class="v-vibe">military · trad-anime</div>
+      </header>
+      <div class="v-banner">
+        <div class="word">NUTODA</div>
+        <div class="sub">level 20 · poland</div>
+      </div>
+      <div class="v-body">
+        <div>
+          <div class="label">Body sample</div>
+          <p class="body-sample"><b>Currently Offline</b> · Level 20 · Poland<br/>
+          Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
+        </div>
+        <div>
+          <div class="label">Mono sample</div>
+          <pre class="mono-sample" style="margin:0;color:var(--muted);font-size:12px;line-height:1.55;">OS:        GitHub.com
+Shell:     zsh / bash
+Languages: TS · Python · PHP
+Status:    <span style="color:var(--red)">Currently Offline</span></pre>
+        </div>
+      </div>
+      <div class="v-credits">
+        <div class="row"><span class="k">Heading</span><span class="v">Black Ops One</span></div>
+        <div class="row"><span class="k">Body</span><span class="v">Inter</span></div>
+        <div class="row"><span class="k">Mono</span><span class="v">JetBrains Mono</span></div>
+      </div>
+    </article>
+
+    <!-- 07 MONO PURIST -->
+    <article class="variant v07">
+      <header class="v-head">
+        <div class="v-num">07</div>
+        <h3 class="v-name">Mono Purist</h3>
+        <div class="v-vibe">terminal · monokuro</div>
+      </header>
+      <div class="v-banner">
+        <div class="word">NUTODA</div>
+        <div class="sub">currently offline</div>
+      </div>
+      <div class="v-body">
+        <div>
+          <div class="label">Body sample</div>
+          <p class="body-sample"><b>Currently Offline</b> · Level 20 · Poland<br/>
+          Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
+        </div>
+        <div>
+          <div class="label">Mono sample</div>
+          <pre class="mono-sample" style="margin:0;color:var(--muted);font-size:12px;line-height:1.55;">OS:        GitHub.com
+Shell:     zsh / bash
+Languages: TS · Python · PHP
+Status:    <span style="color:var(--red)">Currently Offline</span></pre>
+        </div>
+      </div>
+      <div class="v-credits">
+        <div class="row"><span class="k">Heading</span><span class="v">Major Mono Display</span></div>
+        <div class="row"><span class="k">Body</span><span class="v">JetBrains Mono</span></div>
+        <div class="row"><span class="k">Mono</span><span class="v">JetBrains Mono</span></div>
+      </div>
+    </article>
+
+  </main>
+</body>
+</html>

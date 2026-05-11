@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>NUTODA · style lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Major+Mono+Display&family=Noto+Sans+JP:wght@400;500;700&family=Nunito:wght@400;600;700&family=Press+Start+2P&family=Quicksand:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=VT323&family=Zen+Maru+Gothic:wght@500;700&display=swap" />
+  <style>
+    :root {
+      --page-bg: #0a0a0a;
+      --page-fg: #ffffff;
+      --page-muted: #a3a3a3;
+      --page-subtle: #666666;
+      --page-border: #262626;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { background: var(--page-bg); }
+    body {
+      margin: 0;
+      padding: 48px 16px 96px;
+      color: var(--page-fg);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      display: flex;
+      justify-content: center;
+    }
+    .frame { width: 100%; max-width: var(--max); }
+
+    /* ─── lab head ─── */
+    .lab-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--page-border);
+      padding-bottom: 12px;
+      margin-bottom: 28px;
+    }
+    .lab-head h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .lab-head nav { display: flex; gap: 8px; }
+    .lab-head a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--page-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--page-border);
+    }
+    .lab-head a:hover { color: #e60012; border-color: #e60012; }
+
+    .intro {
+      font-family: 'Inter', sans-serif;
+      color: var(--page-muted);
+      font-size: 13px;
+      margin: 0 0 40px;
+      max-width: 700px;
+    }
+    .intro b { color: var(--page-fg); }
+    .intro code { background: #141414; padding: 2px 6px; border-radius: 3px; }
+
+    /* ─── style card chrome (around each variant) ─── */
+    .style {
+      margin-bottom: 28px;
+      border: 1px solid var(--page-border);
+      overflow: hidden;
+    }
+    .style .s-meta-bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      background: #0a0a0a;
+      color: var(--page-muted);
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--page-border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .style .s-meta-bar .num { color: #e60012; }
+    .style .s-meta-bar .name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: var(--page-fg);
+    }
+    .style .s-meta-bar .vibe { color: var(--page-subtle); }
+
+    /* canvas where each style lives */
+    .canvas { padding: 0; }
+
+    /* shared mini-profile shell — overridden per style */
+    .mini-banner {
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .mini-banner .word {
+      font-size: 96px;
+      line-height: 1;
+      letter-spacing: 4px;
+      margin: 0;
+    }
+    .mini-banner .sub {
+      margin-top: 6px;
+      font-size: 13px;
+      letter-spacing: 6px;
+    }
+
+    .mini-profile {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 24px;
+    }
+    .mini-profile .avatar {
+      width: 80px; height: 80px;
+      object-fit: cover;
+      display: block;
+    }
+    .mini-profile h4 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+    .mini-profile .meta {
+      margin: 2px 0 0;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    .mini-profile .badge {
+      font-size: 10px;
+      padding: 4px 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .mini-illu {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 6px;
+      padding: 10px 24px 18px;
+    }
+    .mini-illu img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .palette {
+      display: flex;
+      gap: 0;
+      padding: 16px 24px;
+      border-top: 1px solid currentColor;
+      align-items: center;
+    }
+    .palette .swatches { display: flex; gap: 8px; flex: 1; }
+    .palette .swatch {
+      width: 22px;
+      height: 22px;
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .palette .credits {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-align: right;
+    }
+    .palette .credits b { font-weight: 700; }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /*  01  MONOKURO SHARP  (baseline)                                    */
+    /* ════════════════════════════════════════════════════════════════ */
+    .s01 .canvas { background: #0a0a0a; color: #ffffff; }
+    .s01 .mini-banner { border-bottom: 1px solid #262626; }
+    .s01 .mini-banner .word { font-family: 'Anton', sans-serif; color: #ffffff; }
+    .s01 .mini-banner .sub  { font-family: 'JetBrains Mono', monospace; color: #666666; }
+    .s01 .mini-profile { border-bottom: 1px solid #262626; }
+    .s01 .mini-profile h4 { font-family: 'Inter', sans-serif; font-weight: 700; }
+    .s01 .mini-profile .meta { font-family: 'JetBrains Mono', monospace; color: #a3a3a3; }
+    .s01 .mini-profile .badge { background: #e60012; color: #fff; }
+    .s01 .mini-illu img { border: 1px solid #262626; }
+    .s01 .palette { border-top-color: #262626; color: #a3a3a3; }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /*  02  KAWAII PASTEL  ♡                                              */
+    /* ════════════════════════════════════════════════════════════════ */
+    .s02 .canvas {
+      background: linear-gradient(180deg, #fff5f8 0%, #ffe4ec 100%);
+      color: #5d2e46;
+    }
+    .s02 .mini-banner .word {
+      font-family: 'M PLUS Rounded 1c', 'Quicksand', sans-serif;
+      font-weight: 700;
+      color: #e91e63;
+      text-shadow: 3px 3px 0 #ffd6e3;
+      letter-spacing: 2px;
+    }
+    .s02 .mini-banner .sub {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      color: #b39ddb;
+    }
+    .s02 .mini-banner .sub::before { content: "♡  "; color: #e91e63; }
+    .s02 .mini-banner .sub::after  { content: "  ♡"; color: #e91e63; }
+    .s02 .mini-profile {
+      background: rgba(255,255,255,0.5);
+      border-radius: 22px;
+      margin: 16px 24px;
+      padding: 14px 16px;
+    }
+    .s02 .mini-profile .avatar { border-radius: 50%; border: 2px solid #ffb3c7; }
+    .s02 .mini-profile h4 { font-family: 'Quicksand', sans-serif; font-weight: 700; color: #c2185b; }
+    .s02 .mini-profile .meta { font-family: 'Nunito', sans-serif; color: #9c5e7d; }
+    .s02 .mini-profile .meta::before { content: "✿ "; color: #e91e63; }
+    .s02 .mini-profile .badge {
+      background: #ffd6e3;
+      color: #c2185b;
+      border-radius: 999px;
+      border: 1px solid #ffb3c7;
+    }
+    .s02 .mini-illu img {
+      border-radius: 16px;
+      border: 2px solid #ffd6e3;
+    }
+    .s02 .palette { border-top-color: #ffd6e3; color: #c2185b; }
+    .s02 .palette .credits { color: #9c5e7d; }
+    .s02 .palette .credits b { color: #c2185b; }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /*  03  CYBERPUNK NEON                                                */
+    /* ════════════════════════════════════════════════════════════════ */
+    .s03 .canvas {
+      background: #0a0014;
+      color: #c8b8ff;
+    }
+    .s03 .mini-banner {
+      border-bottom: 1px solid #ff0080;
+      background:
+        repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,0,128,0.06) 3px, rgba(255,0,128,0.06) 4px);
+    }
+    .s03 .mini-banner .word {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #00f0ff;
+      letter-spacing: 8px;
+      text-shadow:
+        0 0 6px #00f0ff,
+        2px 0 0 #ff0080,
+        -2px 0 0 #ffe600;
+    }
+    .s03 .mini-banner .sub {
+      font-family: 'JetBrains Mono', monospace;
+      color: #ff0080;
+    }
+    .s03 .mini-profile { border-bottom: 1px solid #1f0033; }
+    .s03 .mini-profile h4 { font-family: 'Rajdhani', sans-serif; color: #00f0ff; letter-spacing: 4px; }
+    .s03 .mini-profile .meta { font-family: 'JetBrains Mono', monospace; color: #c8b8ff; }
+    .s03 .mini-profile .badge {
+      background: transparent;
+      color: #00ff41;
+      border: 1px solid #00ff41;
+      box-shadow: 0 0 6px rgba(0,255,65,0.6);
+    }
+    .s03 .mini-illu img {
+      border: 1px solid #ff0080;
+      filter: hue-rotate(280deg) saturate(1.4) contrast(1.1);
+    }
+    .s03 .palette { border-top-color: #1f0033; color: #c8b8ff; }
+    .s03 .palette .credits b { color: #00f0ff; }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /*  04  VAPORWAVE                                                     */
+    /* ════════════════════════════════════════════════════════════════ */
+    .s04 .canvas {
+      background:
+        linear-gradient(180deg, #2a0040 0%, #5b1f7c 60%, #ff71ce 100%);
+      color: #fffb96;
+    }
+    .s04 .mini-banner {
+      background:
+        linear-gradient(transparent 90%, rgba(0,255,255,0.5) 90%) bottom/100% 100% no-repeat,
+        repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,0.05) 39px 40px);
+    }
+    .s04 .mini-banner .word {
+      font-family: 'VT323', monospace;
+      font-size: 130px;
+      line-height: 0.85;
+      color: #fffb96;
+      letter-spacing: 14px;
+      text-shadow:
+        4px 0 0 #ff71ce,
+        -4px 0 0 #01cdfe;
+    }
+    .s04 .mini-banner .sub {
+      font-family: 'Major Mono Display', monospace;
+      letter-spacing: 14px;
+      color: #ffffff;
+    }
+    .s04 .mini-profile h4 { font-family: 'VT323', monospace; font-size: 28px; letter-spacing: 4px; color: #fffb96; }
+    .s04 .mini-profile .meta { font-family: 'JetBrains Mono', monospace; color: #ffffff; }
+    .s04 .mini-profile .badge {
+      background: #ff71ce;
+      color: #2a0040;
+      font-family: 'VT323', monospace;
+      font-size: 14px;
+    }
+    .s04 .mini-illu img {
+      border: 2px solid #fffb96;
+      filter: saturate(1.3) hue-rotate(-10deg);
+    }
+    .s04 .palette { border-top-color: rgba(255,251,150,0.3); color: #fffb96; }
+    .s04 .palette .credits b { color: #ff71ce; }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /*  05  PASTEL GOTH                                                   */
+    /* ════════════════════════════════════════════════════════════════ */
+    .s05 .canvas {
+      background: #150814;
+      color: #f8bbd0;
+    }
+    .s05 .mini-banner { border-bottom: 1px solid #3a1530; }
+    .s05 .mini-banner .word {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      color: #f8bbd0;
+      letter-spacing: 0;
+    }
+    .s05 .mini-banner .sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: #c2185b;
+      letter-spacing: 4px;
+    }
+    .s05 .mini-banner .sub::before { content: "✟  "; }
+    .s05 .mini-banner .sub::after  { content: "  ✟"; }
+    .s05 .mini-profile { border-bottom: 1px solid #3a1530; }
+    .s05 .mini-profile .avatar { border: 1px solid #c2185b; filter: grayscale(0.4); }
+    .s05 .mini-profile h4 { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #f8bbd0; font-size: 22px; }
+    .s05 .mini-profile .meta { font-family: 'Inter', sans-serif; color: #c2185b; }
+    .s05 .mini-profile .badge {
+      background: transparent;
+      color: #f8bbd0;
+      border: 1px solid #c2185b;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      text-transform: lowercase;
+    }
+    .s05 .mini-illu img { border: 1px solid #3a1530; filter: contrast(1.1) saturate(0.7); }
+    .s05 .palette { border-top-color: #3a1530; color: #c2185b; }
+    .s05 .palette .credits b { color: #f8bbd0; }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /*  06  ANIME MANGA                                                   */
+    /* ════════════════════════════════════════════════════════════════ */
+    .s06 .canvas {
+      background: #ffffff;
+      color: #000000;
+    }
+    .s06 .mini-banner {
+      background:
+        radial-gradient(circle, #000 1px, transparent 1.5px) 0 0/8px 8px,
+        #ffffff;
+      border-bottom: 3px solid #000;
+    }
+    .s06 .mini-banner .word {
+      font-family: 'Anton', 'Bebas Neue', sans-serif;
+      color: #000;
+      font-size: 110px;
+      letter-spacing: 0;
+      transform: skewX(-6deg);
+      display: inline-block;
+      background: #fff;
+      padding: 0 18px;
+      border: 4px solid #000;
+      box-shadow: 6px 6px 0 #ff0033;
+    }
+    .s06 .mini-banner .sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      color: #ff0033;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-top: 14px;
+    }
+    .s06 .mini-profile { border-bottom: 2px solid #000; }
+    .s06 .mini-profile .avatar { border: 2px solid #000; box-shadow: 4px 4px 0 #ff0033; }
+    .s06 .mini-profile h4 { font-family: 'Anton', sans-serif; color: #000; letter-spacing: 0; font-size: 22px; }
+    .s06 .mini-profile .meta { font-family: 'DM Sans', sans-serif; font-weight: 500; color: #000; }
+    .s06 .mini-profile .badge {
+      background: #000;
+      color: #fff;
+      font-family: 'Anton', sans-serif;
+      font-weight: normal;
+      transform: skewX(-6deg);
+    }
+    .s06 .mini-illu img { border: 2px solid #000; }
+    .s06 .palette { border-top-color: #000; color: #000; }
+    .s06 .palette .credits b { color: #ff0033; }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /*  07  TERMINAL HACKER                                               */
+    /* ════════════════════════════════════════════════════════════════ */
+    .s07 .canvas {
+      background: #000000;
+      color: #00ff66;
+      position: relative;
+    }
+    .s07 .canvas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0,255,102,0.02) 0,
+        rgba(0,255,102,0.02) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+    }
+    .s07 .mini-banner { border-bottom: 1px dashed #00ff66; }
+    .s07 .mini-banner .word {
+      font-family: 'Major Mono Display', monospace;
+      color: #00ff66;
+      letter-spacing: 0;
+      font-size: 78px;
+    }
+    .s07 .mini-banner .sub {
+      font-family: 'JetBrains Mono', monospace;
+      color: #00ff66;
+      opacity: 0.6;
+    }
+    .s07 .mini-banner .sub::before { content: "$ "; }
+    .s07 .mini-profile { border-bottom: 1px dashed #1a3a1a; }
+    .s07 .mini-profile .avatar { filter: hue-rotate(70deg) saturate(2); border: 1px solid #00ff66; }
+    .s07 .mini-profile h4 { font-family: 'JetBrains Mono', monospace; color: #00ff66; }
+    .s07 .mini-profile h4::before { content: "[+] "; }
+    .s07 .mini-profile .meta { font-family: 'JetBrains Mono', monospace; color: #88ff88; opacity: 0.7; }
+    .s07 .mini-profile .badge {
+      background: transparent;
+      color: #00ff66;
+      border: 1px dashed #00ff66;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .s07 .mini-illu img { border: 1px solid #1a3a1a; filter: grayscale(1) brightness(0.7) contrast(1.4) sepia(0.4) hue-rotate(70deg) saturate(3); }
+    .s07 .palette { border-top-color: #1a3a1a; color: #88ff88; }
+    .s07 .palette .credits { font-family: 'JetBrains Mono', monospace; }
+    .s07 .palette .credits b { color: #00ff66; }
+
+    /* ─── compact strip wordmarks ─── */
+    .strip-row {
+      display: grid;
+      grid-template-columns: 38px 1fr 220px;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--page-border);
+    }
+    .strip-row:first-child { border-top: 1px solid var(--page-border); }
+    .strip-row .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--page-subtle);
+      letter-spacing: 2px;
+    }
+    .strip-row .word {
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: 4px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .strip-row .pick {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--page-muted);
+      text-align: right;
+      letter-spacing: 1px;
+    }
+    .strip-row .pick a { color: #e60012; text-decoration: none; border-bottom: 1px dashed #e60012; }
+    /* per-strip word styling */
+    .strip-row.s01 .word { font-family: 'Anton', sans-serif; color: #fff; }
+    .strip-row.s02 .word { font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 700; color: #e91e63; text-shadow: 2px 2px 0 #ffd6e3; }
+    .strip-row.s03 .word { font-family: 'Rajdhani', sans-serif; font-weight: 700; color: #00f0ff; letter-spacing: 8px; text-shadow: 1px 0 0 #ff0080, -1px 0 0 #ffe600; }
+    .strip-row.s04 .word { font-family: 'VT323', monospace; font-size: 60px; color: #fffb96; letter-spacing: 8px; text-shadow: 2px 0 0 #ff71ce, -2px 0 0 #01cdfe; }
+    .strip-row.s05 .word { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #f8bbd0; }
+    .strip-row.s06 .word { font-family: 'Anton', sans-serif; color: #fff; background: #000; padding: 2px 10px; box-shadow: 4px 4px 0 #ff0033; transform: skewX(-6deg); display: inline-block; }
+    .strip-row.s07 .word { font-family: 'Major Mono Display', monospace; color: #00ff66; font-size: 28px; }
+
+    .strip { margin-bottom: 56px; }
+
+    /* ─── responsive ─── */
+    @media (max-width: 640px) {
+      .mini-banner .word { font-size: 60px !important; letter-spacing: 2px !important; }
+      .mini-profile { grid-template-columns: 60px 1fr; gap: 12px; }
+      .mini-profile .avatar { width: 60px; height: 60px; }
+      .mini-profile .badge { display: none; }
+      .mini-illu { grid-template-columns: 1fr 1fr; }
+      .palette { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .strip-row { grid-template-columns: 28px 1fr; gap: 8px; }
+      .strip-row .pick { display: none; }
+      .strip-row .word { font-size: 22px !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="frame">
+
+    <header class="lab-head">
+      <h1>STYLE LAB · NUTODA</h1>
+      <nav>
+        <a href="index.html">← Profile</a>
+        <a href="fonts.html">Fonts</a>
+      </nav>
+    </header>
+
+    <p class="intro">
+      Семь разных эстетик, чтобы пощупать вайб целиком — не только шрифты, но и цвет, форма,
+      декорации. На каждой карточке: баннер, мини-карточка профиля с аватаром, ряд из четырёх твоих иллюстраций
+      под стиль, палитра. Всё рендерится на тех же ассетах <code>assets/illustrations/01-04.jpg</code>.
+      Когда увидишь свой — скажи: <b>«берём № N»</b>, и я перепишу <code>preview/index.html</code> под него.
+    </p>
+
+    <!-- ─── COMPACT STRIP ─── -->
+    <div class="strip">
+      <div class="strip-row s01"><span class="num">01</span><span class="word">NUTODA</span><span class="pick">MONOKURO · сейчас</span></div>
+      <div class="strip-row s02"><span class="num">02</span><span class="word">NUTODA</span><span class="pick">KAWAII · ♡ pastel</span></div>
+      <div class="strip-row s03"><span class="num">03</span><span class="word">NUTODA</span><span class="pick">CYBERPUNK · neon</span></div>
+      <div class="strip-row s04"><span class="num">04</span><span class="word">NUTODA</span><span class="pick">VAPORWAVE · 80s</span></div>
+      <div class="strip-row s05"><span class="num">05</span><span class="word">NUTODA</span><span class="pick">PASTEL GOTH</span></div>
+      <div class="strip-row s06"><span class="num">06</span><span class="word">NUTODA</span><span class="pick">ANIME MANGA</span></div>
+      <div class="strip-row s07"><span class="num">07</span><span class="word">NUTODA</span><span class="pick">TERMINAL · hacker</span></div>
+    </div>
+
+    <!-- ════ 01 MONOKURO ════ -->
+    <article class="style s01">
+      <div class="s-meta-bar">
+        <span class="num">01</span>
+        <span class="name">MONOKURO SHARP</span>
+        <span class="vibe">чёрно-бело-красный · сейчас</span>
+      </div>
+      <div class="canvas">
+        <div class="mini-banner">
+          <div class="word">NUTODA</div>
+          <div class="sub">CURRENTLY OFFLINE</div>
+        </div>
+        <div class="mini-profile">
+          <img class="avatar" src="https://github.com/NUTODA.png" alt="" />
+          <div>
+            <h4>NUTODA</h4>
+            <p class="meta">POLAND · LEVEL 20 · CURRENTLY OFFLINE</p>
+          </div>
+          <span class="badge">LV 20</span>
+        </div>
+        <div class="mini-illu">
+          <img src="../assets/illustrations/01.jpg" alt="" />
+          <img src="../assets/illustrations/02.jpg" alt="" />
+          <img src="../assets/illustrations/03.jpg" alt="" />
+          <img src="../assets/illustrations/04.jpg" alt="" />
+        </div>
+        <div class="palette">
+          <div class="swatches">
+            <span class="swatch" style="background:#0a0a0a"></span>
+            <span class="swatch" style="background:#141414"></span>
+            <span class="swatch" style="background:#262626"></span>
+            <span class="swatch" style="background:#ffffff"></span>
+            <span class="swatch" style="background:#e60012"></span>
+          </div>
+          <div class="credits">Heading: <b>Anton</b> · Body: <b>Inter</b> · Mono: <b>JetBrains Mono</b></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════ 02 KAWAII ════ -->
+    <article class="style s02">
+      <div class="s-meta-bar">
+        <span class="num">02</span>
+        <span class="name">KAWAII PASTEL</span>
+        <span class="vibe">soft · ♡ ✿ ★ · мило</span>
+      </div>
+      <div class="canvas">
+        <div class="mini-banner">
+          <div class="word">NUTODA</div>
+          <div class="sub">currently offline</div>
+        </div>
+        <div class="mini-profile">
+          <img class="avatar" src="https://github.com/NUTODA.png" alt="" />
+          <div>
+            <h4>NUTODA</h4>
+            <p class="meta">poland · уровень 20 · сейчас не в сети</p>
+          </div>
+          <span class="badge">★ lv 20</span>
+        </div>
+        <div class="mini-illu">
+          <img src="../assets/illustrations/01.jpg" alt="" />
+          <img src="../assets/illustrations/02.jpg" alt="" />
+          <img src="../assets/illustrations/03.jpg" alt="" />
+          <img src="../assets/illustrations/04.jpg" alt="" />
+        </div>
+        <div class="palette">
+          <div class="swatches">
+            <span class="swatch" style="background:#fff5f8"></span>
+            <span class="swatch" style="background:#ffe4ec"></span>
+            <span class="swatch" style="background:#ffd6e3"></span>
+            <span class="swatch" style="background:#e91e63"></span>
+            <span class="swatch" style="background:#b39ddb"></span>
+          </div>
+          <div class="credits">Heading: <b>M PLUS Rounded 1c</b> · Body: <b>Quicksand / Nunito</b></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════ 03 CYBERPUNK ════ -->
+    <article class="style s03">
+      <div class="s-meta-bar">
+        <span class="num">03</span>
+        <span class="name">CYBERPUNK NEON</span>
+        <span class="vibe">glow · 2077 · scanline</span>
+      </div>
+      <div class="canvas">
+        <div class="mini-banner">
+          <div class="word">NUTODA</div>
+          <div class="sub">> currently offline</div>
+        </div>
+        <div class="mini-profile">
+          <img class="avatar" src="https://github.com/NUTODA.png" alt="" />
+          <div>
+            <h4>NUTODA</h4>
+            <p class="meta">net.poland // lvl 20 // status: offline</p>
+          </div>
+          <span class="badge">[ ONLINE ]</span>
+        </div>
+        <div class="mini-illu">
+          <img src="../assets/illustrations/01.jpg" alt="" />
+          <img src="../assets/illustrations/02.jpg" alt="" />
+          <img src="../assets/illustrations/03.jpg" alt="" />
+          <img src="../assets/illustrations/04.jpg" alt="" />
+        </div>
+        <div class="palette">
+          <div class="swatches">
+            <span class="swatch" style="background:#0a0014"></span>
+            <span class="swatch" style="background:#1f0033"></span>
+            <span class="swatch" style="background:#ff0080"></span>
+            <span class="swatch" style="background:#00f0ff"></span>
+            <span class="swatch" style="background:#00ff41"></span>
+            <span class="swatch" style="background:#ffe600"></span>
+          </div>
+          <div class="credits">Heading: <b>Rajdhani</b> · Body: <b>JetBrains Mono</b></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════ 04 VAPORWAVE ════ -->
+    <article class="style s04">
+      <div class="s-meta-bar">
+        <span class="num">04</span>
+        <span class="name">VAPORWAVE</span>
+        <span class="vibe">A E S T H E T I C · 80s · grid</span>
+      </div>
+      <div class="canvas">
+        <div class="mini-banner">
+          <div class="word">NUTODA</div>
+          <div class="sub">N O T   A V A I L A B L E</div>
+        </div>
+        <div class="mini-profile">
+          <img class="avatar" src="https://github.com/NUTODA.png" alt="" />
+          <div>
+            <h4>NUTODA</h4>
+            <p class="meta">// poland · level 20 · offline //</p>
+          </div>
+          <span class="badge">LV 20</span>
+        </div>
+        <div class="mini-illu">
+          <img src="../assets/illustrations/01.jpg" alt="" />
+          <img src="../assets/illustrations/02.jpg" alt="" />
+          <img src="../assets/illustrations/03.jpg" alt="" />
+          <img src="../assets/illustrations/04.jpg" alt="" />
+        </div>
+        <div class="palette">
+          <div class="swatches">
+            <span class="swatch" style="background:#2a0040"></span>
+            <span class="swatch" style="background:#5b1f7c"></span>
+            <span class="swatch" style="background:#ff71ce"></span>
+            <span class="swatch" style="background:#01cdfe"></span>
+            <span class="swatch" style="background:#fffb96"></span>
+          </div>
+          <div class="credits">Heading: <b>VT323</b> · Body: <b>Major Mono Display</b></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════ 05 PASTEL GOTH ════ -->
+    <article class="style s05">
+      <div class="s-meta-bar">
+        <span class="num">05</span>
+        <span class="name">PASTEL GOTH</span>
+        <span class="vibe">тёмно-розовый · serif italic · ✟</span>
+      </div>
+      <div class="canvas">
+        <div class="mini-banner">
+          <div class="word">NUTODA</div>
+          <div class="sub">currently offline</div>
+        </div>
+        <div class="mini-profile">
+          <img class="avatar" src="https://github.com/NUTODA.png" alt="" />
+          <div>
+            <h4>NUTODA</h4>
+            <p class="meta">poland — level 20 — currently offline</p>
+          </div>
+          <span class="badge">level 20</span>
+        </div>
+        <div class="mini-illu">
+          <img src="../assets/illustrations/01.jpg" alt="" />
+          <img src="../assets/illustrations/02.jpg" alt="" />
+          <img src="../assets/illustrations/03.jpg" alt="" />
+          <img src="../assets/illustrations/04.jpg" alt="" />
+        </div>
+        <div class="palette">
+          <div class="swatches">
+            <span class="swatch" style="background:#150814"></span>
+            <span class="swatch" style="background:#3a1530"></span>
+            <span class="swatch" style="background:#c2185b"></span>
+            <span class="swatch" style="background:#f8bbd0"></span>
+          </div>
+          <div class="credits">Heading: <b>Cormorant Garamond italic</b> · Body: <b>Inter</b></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════ 06 ANIME MANGA ════ -->
+    <article class="style s06">
+      <div class="s-meta-bar">
+        <span class="num">06</span>
+        <span class="name">ANIME MANGA</span>
+        <span class="vibe">B&W halftone · red drop-shadow</span>
+      </div>
+      <div class="canvas">
+        <div class="mini-banner">
+          <div class="word">NUTODA</div>
+          <div class="sub">currently offline</div>
+        </div>
+        <div class="mini-profile">
+          <img class="avatar" src="https://github.com/NUTODA.png" alt="" />
+          <div>
+            <h4>NUTODA</h4>
+            <p class="meta">POLAND · LV 20 · OFFLINE</p>
+          </div>
+          <span class="badge">LV 20</span>
+        </div>
+        <div class="mini-illu">
+          <img src="../assets/illustrations/01.jpg" alt="" />
+          <img src="../assets/illustrations/02.jpg" alt="" />
+          <img src="../assets/illustrations/03.jpg" alt="" />
+          <img src="../assets/illustrations/04.jpg" alt="" />
+        </div>
+        <div class="palette">
+          <div class="swatches">
+            <span class="swatch" style="background:#ffffff;border:1px solid #000"></span>
+            <span class="swatch" style="background:#000000"></span>
+            <span class="swatch" style="background:#ff0033"></span>
+          </div>
+          <div class="credits">Heading: <b>Anton</b> · Body: <b>DM Sans</b></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════ 07 TERMINAL ════ -->
+    <article class="style s07">
+      <div class="s-meta-bar">
+        <span class="num">07</span>
+        <span class="name">TERMINAL HACKER</span>
+        <span class="vibe">phosphor green · scanlines · CLI</span>
+      </div>
+      <div class="canvas">
+        <div class="mini-banner">
+          <div class="word">nutoda</div>
+          <div class="sub">whoami | grep status</div>
+        </div>
+        <div class="mini-profile">
+          <img class="avatar" src="https://github.com/NUTODA.png" alt="" />
+          <div>
+            <h4>nutoda</h4>
+            <p class="meta">user@github · pl_PL · uptime: offline</p>
+          </div>
+          <span class="badge">[ lv:20 ]</span>
+        </div>
+        <div class="mini-illu">
+          <img src="../assets/illustrations/01.jpg" alt="" />
+          <img src="../assets/illustrations/02.jpg" alt="" />
+          <img src="../assets/illustrations/03.jpg" alt="" />
+          <img src="../assets/illustrations/04.jpg" alt="" />
+        </div>
+        <div class="palette">
+          <div class="swatches">
+            <span class="swatch" style="background:#000000"></span>
+            <span class="swatch" style="background:#1a3a1a"></span>
+            <span class="swatch" style="background:#00ff66"></span>
+            <span class="swatch" style="background:#88ff88"></span>
+          </div>
+          <div class="credits">Heading: <b>Major Mono Display</b> · Body: <b>JetBrains Mono</b></div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+</body>
+</html>
