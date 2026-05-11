@@ -1,6 +1,11 @@
 <!-- ─────────────────────────────  BANNER  ───────────────────────────── -->
 
-<p align="center"><img src="assets/banner.svg" alt="NUTODA" width="100%" /></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
+    <img src="assets/banner.svg" alt="NUTODA" width="100%" />
+  </picture>
+</p>
 
 <!-- ─────────────────────────────  LANG SWITCHER  ───────────────────────────── -->
 
@@ -39,16 +44,25 @@
 <table width="100%">
   <tr>
     <td width="50%" align="center">
-      <img src="https://github-readme-stats.vercel.app/api?username=NUTODA&show_icons=true&theme=transparent&hide_border=true&title_color=000000&icon_color=ff0033&text_color=000000&bg_color=ffffff&include_all_commits=true&count_private=true" alt="stats" />
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=NUTODA&show_icons=true&hide_border=true&bg_color=0d1117&title_color=f0f6fc&icon_color=ff0033&text_color=f0f6fc&include_all_commits=true&count_private=true" />
+        <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=NUTODA&show_icons=true&hide_border=true&bg_color=ffffff&title_color=000000&icon_color=ff0033&text_color=000000&include_all_commits=true&count_private=true" alt="stats" />
+      </picture>
     </td>
     <td width="50%" align="center">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=NUTODA&layout=donut&theme=transparent&hide_border=true&title_color=000000&text_color=000000&bg_color=ffffff&langs_count=8" alt="top-langs" />
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=NUTODA&layout=donut&hide_border=true&bg_color=0d1117&title_color=f0f6fc&text_color=f0f6fc&langs_count=8" />
+        <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=NUTODA&layout=donut&hide_border=true&bg_color=ffffff&title_color=000000&text_color=000000&langs_count=8" alt="top-langs" />
+      </picture>
     </td>
   </tr>
 </table>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=NUTODA&theme=default&hide_border=true&background=ffffff&ring=ff0033&fire=ff0033&currStreakLabel=ff0033&sideLabels=000000&sideNums=000000&dates=666666&currStreakNum=000000&stroke=ff0033" alt="streak" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=NUTODA&hide_border=true&background=0d1117&stroke=ff0033&ring=ff0033&fire=ff0033&currStreakLabel=ff0033&sideLabels=f0f6fc&sideNums=f0f6fc&dates=8b949e&currStreakNum=f0f6fc" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=NUTODA&hide_border=true&background=ffffff&stroke=ff0033&ring=ff0033&fire=ff0033&currStreakLabel=ff0033&sideLabels=000000&sideNums=000000&dates=666666&currStreakNum=000000" alt="streak" />
+  </picture>
 </p>
 
 ---
@@ -58,7 +72,10 @@
 <p><img src="https://img.shields.io/badge/02-%D0%90%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%AC-ff0033?style=for-the-badge&labelColor=000000" alt="02 АКТИВНОСТЬ" /></p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=NUTODA&hide_border=false&bg_color=ffffff&color=000000&line=ff0033&point=000000&area=true&area_color=ff0033&radius=8" alt="activity graph" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=NUTODA&hide_border=false&bg_color=0d1117&color=f0f6fc&line=ff0033&point=f0f6fc&area=true&area_color=ff0033&radius=8" />
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=NUTODA&hide_border=false&bg_color=ffffff&color=000000&line=ff0033&point=000000&area=true&area_color=ff0033&radius=8" alt="activity graph" width="100%" />
+  </picture>
 </p>
 
 ---
