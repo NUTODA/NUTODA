@@ -16,28 +16,35 @@
 
 <br/>
 
-<!-- ─────────────────────────────  HEADER CARD  ───────────────────────────── -->
+<!-- ─────────────────────────────  ABOUT  ───────────────────────────── -->
 
-<table width="100%">
-  <tr>
-    <td width="160" align="center" valign="middle">
-      <img src="https://github.com/NUTODA.png" width="140" alt="avatar" />
-    </td>
-    <td valign="middle">
-      <h2>NUTODA</h2>
-      <p>
-        <img src="https://img.shields.io/github/followers/NUTODA?label=FOLLOWERS&style=for-the-badge&color=ff0033&labelColor=000000" alt="followers" />
-        <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2FNUTODA&query=%24.following&label=FOLLOWING&style=for-the-badge&color=ff0033&labelColor=000000" alt="following" />
-        <img src="https://komarev.com/ghpvc/?username=NUTODA&label=ПРОСМОТРЫ&color=ff0033&style=for-the-badge&labelColor=000000" alt="views" />
-      </p>
-      <p>Тут водятся коммиты, GIF-витрины для Steam и JDM-аниме.</p>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <b>Backend Developer</b> · Python / PHP / SQL · Docker · LLM integrations
+</p>
+<p align="center">
+  Building backends, autonomous agents, and dev tools.
+  Open to collaborations on AI/LLM, LegalTech, and open-source infra projects.
+</p>
 
 ---
 
-<!-- ─────────────────────────────  01 INVENTORY  ───────────────────────────── -->
+<!-- ─────────────────────────────  00 СТЕК  ───────────────────────────── -->
+
+<p><img src="https://img.shields.io/badge/00_%D0%A1%D0%A2%D0%95%D0%9A-ff0033?style=for-the-badge&labelColor=000000" alt="00 СТЕК" /></p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white" />
+  <img src="https://img.shields.io/badge/MySQL-00758F?style=flat-square&logo=mysql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" />
+  <img src="https://img.shields.io/badge/Claude-000000?style=flat-square&logo=anthropic&logoColor=white" />
+</p>
+
+---
+
+<!-- ─────────────────────────────  01 ИНВЕНТАРЬ  ───────────────────────────── -->
 
 <p><img src="https://img.shields.io/badge/01-%D0%98%D0%9D%D0%92%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%AC-ff0033?style=for-the-badge&labelColor=000000" alt="01 ИНВЕНТАРЬ" /></p>
 
@@ -67,7 +74,20 @@
 
 ---
 
-<!-- ─────────────────────────────  02 ACTIVITY  ───────────────────────────── -->
+<!-- ─────────────────────────────  01.5 ПРОЕКТЫ  ───────────────────────────── -->
+
+<p><img src="https://img.shields.io/badge/01.5_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%AB-ff0033?style=for-the-badge&labelColor=000000" alt="01.5 ПРОЕКТЫ" /></p>
+
+| Проект | Стек | Описание |
+|--------|------|----------|
+| 🤖 [AI_Agent](https://github.com/NUTODA/AI_Agent) | Python · Playwright · Pydantic | Каркас для LLM-агентов в браузере: типизированный планировщик, мультишаговый рантайм, гард-рейлы и трейсы. |
+| 🎞️ [GifToSteamWorkshop](https://github.com/NUTODA/GifToSteamWorkshop) | Python · Telegram Bot · FFmpeg | Бот, который режет GIF под Витрину Steam (5 слотов × 150px) и отдаёт готовый ZIP. |
+| 🛒 [enf](https://github.com/NUTODA/enf) | Django · PostgreSQL · Docker · Stripe | Интернет-магазин: каталог, корзина, заказы, оплата через Stripe, Nginx + Gunicorn. |
+| 📓 [Vistamed-TT](https://github.com/NUTODA/Vistamed-TT) | FastAPI · PostgreSQL · Docker | Асинхронный REST API дневника на SQLAlchemy + asyncpg в Docker Compose. |
+
+---
+
+<!-- ─────────────────────────────  02 АКТИВНОСТЬ  ───────────────────────────── -->
 
 <p><img src="https://img.shields.io/badge/02-%D0%90%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%AC-ff0033?style=for-the-badge&labelColor=000000" alt="02 АКТИВНОСТЬ" /></p>
 
@@ -80,21 +100,16 @@
 
 ---
 
-<!-- ─────────────────────────────  03 ILLUSTRATIONS  ───────────────────────────── -->
+<!-- ─────────────────────────────  04 КОНТАКТЫ  ───────────────────────────── -->
 
-<p><img src="https://img.shields.io/badge/03-%D0%98%D0%9B%D0%9B%D0%AE%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%98%D0%98-ff0033?style=for-the-badge&labelColor=000000" alt="03 ИЛЛЮСТРАЦИИ" /></p>
-
-<p align="center">
-  <a href="assets/illustrations/01.jpg"><img src="assets/illustrations/01.jpg" width="100%" alt="Miu Miu — JDM Silvia" /></a>
-</p>
+<p><img src="https://img.shields.io/badge/04_%D0%9A%D0%9E%D0%9D%D0%A2%D0%90%D0%9A%D0%A2%D0%AB-ff0033?style=for-the-badge&labelColor=000000" alt="04 КОНТАКТЫ" /></p>
 
 <p align="center">
-  <a href="assets/illustrations/02.jpg"><img src="assets/illustrations/02.jpg" width="32%" alt="☆⌒(＞。≪)" /></a>
-  <a href="assets/illustrations/03.jpg"><img src="assets/illustrations/03.jpg" width="32%" alt="(´TωT`)" /></a>
-  <a href="assets/illustrations/04.jpg"><img src="assets/illustrations/04.jpg" width="32%" alt="_￠(･ω･｀)" /></a>
+  <a href="mailto:eg@agmo.cat"><img src="https://img.shields.io/badge/Email-eg%40agmo.cat-ff0033?style=for-the-badge&logo=maildotru&logoColor=white&labelColor=000000" alt="email" /></a>
+  <!-- replace with actual Telegram handle if different from GitHub username -->
+  <a href="https://t.me/NUTODA"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="telegram" /></a>
+  <a href="https://github.com/NUTODA"><img src="https://img.shields.io/badge/GitHub-NUTODA-000000?style=for-the-badge&logo=github&logoColor=white&labelColor=000000" alt="github" /></a>
 </p>
-
-<p align="right"><sub>Miu Miu · ☆⌒(＞。≪) · (´TωT`) · _￠(･ω･｀)</sub></p>
 
 ---
 
